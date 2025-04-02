@@ -1,4 +1,5 @@
 import quopri
+from cook_framework.framework_requests import GetRequests, PostRequests
 
 
 class PageNotFound404:
@@ -19,6 +20,20 @@ class Framework:
         if not path.endswith('/'):
             path = f'{path}/'
 
+        # Создаем словарь с данными запроса
+        request = {}
+        method = environ['REQUEST_METHOD']
+        request['method'] = method
+
+        if method == 'POST':
+            data = PostRequests().get_request_params(environ)
+            request['data'] = data
+            print(f'Нам пришел POST-запрос: {Framework.decode_value(data)}')
+        if method == 'GET':
+            request_params = GetRequests().get_request_params(environ)
+            request['request_params'] = request_params
+            print(f'Нам пришли GET-параметры: {request_params}')
+
         # Находим нужный контроллер -
         # как значение ключа path в словаре self.routes_obj
         if path in self.routes_obj:
@@ -26,11 +41,8 @@ class Framework:
         else:
             view = PageNotFound404()
 
-        # Создаем словарь с данными запроса.
-        # Заполняем словарь, передавая его фронт-контроллерам
-        request = {}
-        for front in self.fronts_obj:
-            front(request)
+        # for front in self.fronts_obj:
+        #     front(request)
 
         # Запускаем контроллер - получаем код и тело ответа.
         # Код ответа передаем в функцию start_response(),
