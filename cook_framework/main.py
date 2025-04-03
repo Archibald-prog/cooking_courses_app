@@ -1,5 +1,5 @@
 import quopri
-from cook_framework.framework_requests import GetRequests, PostRequests
+from framework_requests import GetRequests, PostRequests
 
 
 class PageNotFound404:
