@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+{% block title %}
+  Наше расписание
+{% endblock %}
+{% block style %}
+  {% include "inc-style.html" %}
+{% endblock %}
+{% block header %}
+    {% include "inc-header.html" %}
+{% endblock %}
+{% block site_content %}
+  {% block sidebar %}
+    {% include "inc-sidebar.html" %}
+  {% endblock %}
+  {% block page_content %}
+      <div id="content">
+        <h1>Программы обучения</h1>
+        <p><strong>Курсы в течение года</strong></p>
+        <p>Расписание действует на: {{date}}</p>
+        <table style="width:100%; border-spacing:0;">
+          <tr>
+            <th></th>
+            <th>Москва</th>
+            <th>Санкт-Петербург</th>
+            <th>Екатеринбург</th>
+          </tr>
+          <tr>
+            <th>Спагетти: с нуля до шеф-повара</th>
+            <td>Чт, 10 апреля 2025<br />11:00 - 13:00</td>
+            <td>Чт, 6 марта 2025<br />11:00 - 14:00</td>
+            <td>Чт, 6 марта 2025<br />11:00 - 14:00</td>
+          </tr>
+          <tr>
+            <th>Японская кухня: базовый курс</th>
+            <td>Чт, 10 апреля 2025<br />11:00 - 13:00</td>
+            <td>Сб, 1 мая 2025<br />11:00 - 13:00</td>
+            <td>Сб, 8 мая 2025<br />11:00 - 13:00</td>
+          </tr>
+          <tr>
+            <th>Мясные блюда в грузинской кухне</th>
+            <td>Чт, 10 апреля 2025<br />11:00 - 13:00</td>
+            <td>Сб, 1 мая 2025<br />11:00 - 13:00</td>
+            <td>Сб, 8 мая 2025<br />11:00 - 13:00</td>
+          </tr>
+          <tr>
+            <th>Вегетарианская кухня</th>
+            <td>Чт, 10 апреля 2025<br />11:00 - 13:00</td>
+            <td>Сб, 1 мая 2025<br />11:00 - 13:00</td>
+            <td>Сб, 8 мая 2025<br />11:00 - 13:00</td>
+          </tr>
+        </table>
+        <h2>Зарегистрируйтесь</h2>
+        <form action="" method="post">
+            <div class="form_settings">
+                <p><span>Ваше имя</span><input type="text" name="name" value="" /></p>
+                <p><span>Ваш Email</span><input class="contact" type="text" name="your_email" value="" /></p>
+                <p><span>Ближайший центр:</span>
+                    <select id="id" name="name">
+                        <option value="msk">Москва</option>
+                        <option value="spb">Санкт-Петербург</option>
+                        <option value="ekb">Екатеринбург</option>
+                    </select>
+                </p>
+                <p><span>Являетесь участником?</span>
+                    <input class="checkbox" type="checkbox" name="member" value="yes" />Да
+                    <input class="checkbox" type="checkbox" name="member" value="No" />Нет
+                <p style="padding-top: 15px"><span>&nbsp;</span><input class="submit" type="submit" name="name" value="Регистрация" /></p>
+            </div>
+
+        </form>
+      </div>
+  {% endblock %}
+{% endblock %}
+{% block footer %}
+  {% include "inc-footer.html" %}
+{% endblock %}

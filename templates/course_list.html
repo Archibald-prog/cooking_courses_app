@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block title %}
+  Список курсов
+{% endblock %}
+{% block style %}
+  {% include "inc-style.html" %}
+{% endblock %}
+{% block header %}
+    {% include "inc-header.html" %}
+{% endblock %}
+{% block site_content %}
+  {% block sidebar %}
+    {% include "inc-sidebar.html" %}
+  {% endblock %}
+  {% block page_content %}
+      <div id="content">
+        <h1>Список курсов для направления "{{name}}"</h1>
+          {% for item in objects_list %}
+            <table style="width:100%; border-spacing:0;">
+            <tr><td>{{item.name}}</td><td style="text-align:right">
+              <a href="#" class="btn_table">Подробнее о курсе</a></td></tr>
+            </table>
+          {% endfor %}
+          <div>
+
+            <a href="/create-course/?id={{id}}" class="btn_link">Создать новый курс</a>
+
+          </div>
+
+      </div>
+  {% endblock %}
+{% endblock %}
+{% block footer %}
+  {% include "inc-footer.html" %}
+{% endblock %}

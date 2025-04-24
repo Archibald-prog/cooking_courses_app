@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block title %}
+	Преподаватели
+{% endblock %}
+{% block style %}
+	{% include "inc-style.html" %}
+{% endblock %}
+{% block header %}   
+    {% include "inc-header.html" %}
+{% endblock %}
+{% block site_content %}    
+	{% block sidebar %}   
+		{% include "inc-sidebar.html" %}
+	{% endblock %}
+	{% block page_content %}   
+		<div id="content">
+        <!-- insert the page content here -->
+        <h1>Вам преподают</h1>
+        <h2>Изображения</h2>
+        <p>images can be placed on the left, in the center or on the right:</p>
+        <span class="left"><img src="style/graphic.png" alt="example graphic" /></span>
+        <p>
+          Здесь может быть параграф с неким текстом.
+        </p>
+        <span class="center"><img src="style/graphic.png" alt="example graphic" /></span>
+        <span class="right"><img src="style/graphic.png" alt="example graphic" /></span>
+      </div>
+	{% endblock %} 	
+{% endblock %} 
+{% block footer %} 
+	{% include "inc-footer.html" %}
+{% endblock %}
